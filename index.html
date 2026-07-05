@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>日历心情 App 原型</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="stage">
+      <section class="phone" aria-label="日历心情 App 交互原型">
+        <header class="status-bar">
+          <span>9:41</span>
+          <span>5G&nbsp;&nbsp;100%</span>
+        </header>
+
+        <section class="screen screen-calendar is-active" data-screen="calendar">
+          <div class="top-row">
+            <div>
+              <p class="eyebrow">早上好</p>
+              <h1>Aindra</h1>
+            </div>
+            <button class="avatar-button" type="button" aria-label="个人中心"></button>
+          </div>
+
+          <div class="month-row">
+            <h2>2026 年 7 月</h2>
+            <button class="pill pill-dark" type="button" data-go="plan">今天</button>
+          </div>
+
+          <div class="calendar-card">
+            <div class="weekdays">
+              <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+          </div>
+
+          <div class="section-heading">
+            <h2>今日节奏</h2>
+          </div>
+
+          <button class="event-card" type="button" data-go="plan">
+            <span class="accent accent-green"></span>
+            <span>
+              <strong>设计评审</strong>
+              <small>10:00 - 10:45</small>
+            </span>
+            <em>平静</em>
+          </button>
+
+          <button class="event-card" type="button" data-go="plan">
+            <span class="accent accent-blue"></span>
+            <span>
+              <strong>专注时段</strong>
+              <small>14:00 - 16:00</small>
+            </span>
+            <em class="blue">深入</em>
+          </button>
+
+          <div class="mood-row">
+            <h2>心情打卡</h2>
+            <button class="chip" type="button" data-mood="还好">还好</button>
+            <button class="chip" type="button" data-mood="疲惫">疲惫</button>
+            <button class="chip is-selected" type="button" data-mood="开心">开心</button>
+          </div>
+        </section>
+
+        <section class="screen screen-plan" data-screen="plan">
+          <div class="title-row">
+            <button class="icon-button" type="button" data-go="calendar" aria-label="返回日历">‹</button>
+            <div>
+              <h1>今天</h1>
+              <p>7 月 11 日，星期六</p>
+            </div>
+          </div>
+
+          <article class="forecast-card">
+            <div>
+              <p>能量预报</p>
+              <h2>上午稳定，<br />下午放轻</h2>
+              <small>评审后留出 20 分钟缓冲。</small>
+            </div>
+            <strong>82%</strong>
+          </article>
+
+          <div class="section-heading inline">
+            <h2>时间线</h2>
+            <div>
+              <button class="chip chip-dark is-selected" type="button">全部</button>
+              <button class="chip" type="button">工作</button>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <time>08:00</time>
+              <span class="timeline-dot pink"></span>
+              <button class="timeline-card" type="button">
+                <strong>晨间记录</strong>
+                <small>开始任务前，记一下睡眠状态。</small>
+              </button>
+            </article>
+            <article class="timeline-item">
+              <time>10:00</time>
+              <span class="timeline-dot green"></span>
+              <button class="timeline-card" type="button" data-go="mood">
+                <strong>设计评审</strong>
+                <small>讨论日历与心情记录的流程。</small>
+              </button>
+            </article>
+            <article class="timeline-item">
+              <time>13:00</time>
+              <span class="timeline-dot yellow"></span>
+              <button class="timeline-card" type="button">
+                <strong>午间散步</strong>
+                <small>前十分钟不看手机。</small>
+              </button>
+            </article>
+            <article class="timeline-item">
+              <time>15:00</time>
+              <span class="timeline-dot blue"></span>
+              <button class="timeline-card" type="button" data-go="mood">
+                <strong>专注时段</strong>
+                <small>规划明天最重要的三件事。</small>
+              </button>
+            </article>
+          </div>
+
+          <button class="fab" type="button" id="addPlan" aria-label="新增日程">+</button>
+        </section>
+
+        <section class="screen screen-mood" data-screen="mood">
+          <div class="title-row dark-title">
+            <button class="icon-button ghost" type="button" data-go="plan" aria-label="返回计划">‹</button>
+            <div>
+              <h1>心情记录</h1>
+              <p>7 月 11 日，夜晚</p>
+            </div>
+          </div>
+
+          <article class="mood-hero">
+            <div>
+              <h2>今天感觉<br />怎么样？</h2>
+              <p>把感受和日程连起来，让明天的计划更体贴一点。</p>
+            </div>
+            <div class="face" id="face">:)</div>
+          </article>
+
+          <div class="mood-picker">
+            <h2>选择心情</h2>
+            <div class="dark-chips">
+              <button class="chip dark" type="button" data-mood-pick="平静">平静</button>
+              <button class="chip dark is-selected" type="button" data-mood-pick="开心">开心</button>
+              <button class="chip dark" type="button" data-mood-pick="疲惫">疲惫</button>
+              <button class="chip dark" type="button" data-mood-pick="焦虑">焦虑</button>
+            </div>
+          </div>
+
+          <div class="linked-events">
+            <h2>关联日程</h2>
+            <button class="event-card dark-card is-linked" type="button">
+              <span class="accent accent-green"></span>
+              <span>
+                <strong>设计评审</strong>
+                <small>反馈之后感觉更清楚了</small>
+              </span>
+              <em>很好</em>
+            </button>
+            <button class="event-card dark-card" type="button">
+              <span class="accent accent-yellow"></span>
+              <span>
+                <strong>专注时段</strong>
+                <small>午饭后重新进入状态有点难</small>
+              </span>
+              <em class="yellow">疲惫</em>
+            </button>
+          </div>
+
+          <label class="note-field">
+            <textarea id="noteText" rows="3" placeholder="写一句话给明天的自己..."></textarea>
+            <button type="button" id="saveMood">保存记录</button>
+          </label>
+        </section>
+
+        <nav class="bottom-nav" aria-label="主导航">
+          <button class="nav-item is-active" type="button" data-go="calendar">
+            <span></span>
+            <em>日历</em>
+          </button>
+          <button class="nav-item" type="button" data-go="plan">
+            <span></span>
+            <em>计划</em>
+          </button>
+          <button class="nav-item" type="button" data-go="mood">
+            <span></span>
+            <em>心情</em>
+          </button>
+          <button class="nav-item" type="button" data-go="stats">
+            <span></span>
+            <em>统计</em>
+          </button>
+        </nav>
+
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
