@@ -53,6 +53,16 @@ button {
   box-shadow: 0 24px 70px rgba(17, 19, 21, 0.22);
 }
 
+@media (max-width: 420px) {
+  .phone {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
 .status-bar {
   position: absolute;
   z-index: 10;
