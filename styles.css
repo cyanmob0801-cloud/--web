@@ -44,8 +44,8 @@ button {
 
 .phone {
   position: relative;
-  width: min(390px, 100vw - 32px);
-  height: min(844px, calc(100vh - 48px));
+  width: min(390px, 100%);
+  height: minmin(844px, 100%);
   min-height: 760px;
   overflow: hidden;
   border-radius: 32px;
@@ -565,6 +565,7 @@ h2 {
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(228, 226, 220, 0.7);
   backdrop-filter: blur(18px);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .screen-mood.is-active ~ .bottom-nav {
